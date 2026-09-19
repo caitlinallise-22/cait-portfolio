@@ -11,6 +11,22 @@
 
 <body>
 
+    <script>
+        // Quick client-side geo-block: redirect US visitors to 404.html
+        (function() {
+            try {
+                fetch('https://ipapi.co/json/')
+                    .then(function(res){ return res.json(); })
+                    .then(function(data){
+                        if (data && data.country === 'US') {
+                            window.location.href = '/404.html';
+                        }
+                    })
+                    .catch(function(){ /* fail open */ });
+            } catch (e) { /* fail open */ }
+        })();
+    </script>
+
     <div class="wrapper">
         <div class="row">
             <div class="link1"><a href="#myart">My Art</a></div>
