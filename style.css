@@ -18,7 +18,7 @@ body {
 
 .container img {
     width: 100%;
-    height: 660px;
+    height: auto;
 }
 
 .mySlides {
@@ -256,8 +256,46 @@ footer p {
     }
 }
 
+/* Bio picture sizing */
+.bio-pic {
+    width: 25%;
+    max-width: 240px;
+    height: auto;
+    display: block;
+    margin: 10px auto 0; /* centers horizontally */
+}
+
+@media only screen and (max-width:600px) {
+    .bio-pic { width: 45%; max-width: none; }
+}
+
 @media only screen and (max-width:1000px) {
     .wrapper {
         width: 100%;
     }
+}
+
+/* Gallery grid: two columns with small gap */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 6px;
+    padding: 4px 0;
+    grid-auto-flow: dense;
+}
+.project-gallery .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.project-gallery .gallery-item.landscape {
+    grid-column: 1 / -1; /* span both columns */
+}
+.project-gallery .gallery-item.portrait {
+    /* occupies a single column */
+}
+
+@media only screen and (max-width:600px) {
+    .project-gallery { grid-template-columns: 1fr; }
 }
